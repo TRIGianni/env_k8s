@@ -1,0 +1,13 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: devk8s
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30779   # NodePort HTTPS de Portainer
+    hostPort: 9443
+  image: kindest/node:v1.35.1
+- role: worker
+  image: kindest/node:v1.35.1
+- role: worker
+  image: kindest/node:v1.35.1
